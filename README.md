@@ -1049,11 +1049,10 @@
       <div class="burst" id="burst"></div>
       <h2>Yay!! It’s a date 💞</h2>
       <p id="successText">
-        Bianca, I’m so lucky to have you. Saying yes to you is the easiest thing — and now we officially have Valentine’s together. I’m going to make it unforgettable. Can’t wait to see you. 💖
+        Bianca, I’m so lucky to have you. You are my sunshine my only sunshine. I love you soo much so so much. We have been together for almost 2 years now wow... time is flying by so fast when I am with you. Can’t wait to see you on Valentine's Day 💖
       </p>
       <div class="actions" style="margin-top:16px">
         <button class="yes" id="copyBtn">Copy a cute message 📩</button>
-        <button class="no" id="resetBtn">Replay 🔁</button>
       </div>
       <p class="tiny" style="margin-top:12px; opacity:.85">
         You’re the best. 🫶
@@ -1422,7 +1421,6 @@
     // Success overlay
     const overlay = document.getElementById("overlay");
     const closeBtn = document.getElementById("closeBtn");
-    const resetBtn = document.getElementById("resetBtn");
     const copyBtn = document.getElementById("copyBtn");
     const burst = document.getElementById("burst");
 
@@ -1458,16 +1456,6 @@
 
     closeBtn.addEventListener("click", () => overlay.classList.remove("show"));
     overlay.addEventListener("click", (e) => { if(e.target === overlay) overlay.classList.remove("show"); });
-
-    resetBtn.addEventListener("click", () => {
-      overlay.classList.remove("show");
-      noCount = 0;
-      noBtn.style.position = "relative";
-      noBtn.style.left = "auto";
-      noBtn.style.top = "auto";
-      noBtn.style.transform = "none";
-      document.getElementById("tinyHint").textContent = "Tip: Try tapping “No” a couple times 😉";
-    });
 
     copyBtn.addEventListener("click", async () => {
       const msg = "Happy Valentine’s 💖 Bianca, will you be my Valentine? — Luca 🫶";
