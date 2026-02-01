@@ -974,7 +974,6 @@
             <span class="introBtnText">Continue</span>
             <span class="introBtnIcon">▶</span>
           </button>
-          <button id="skipIntro" class="skipBtn" aria-label="Skip intro">Skip</button>
         </div>
       </div>
     </div>
@@ -1082,7 +1081,6 @@
     const introOverlay = document.getElementById("introOverlay");
     const mainApp = document.getElementById("mainApp");
     const introContinue = document.getElementById("introContinue");
-    const skipIntro = document.getElementById("skipIntro");
     const shutterFlash = document.getElementById("shutterFlash");
     const introLayers = document.getElementById("introLayers");
 
@@ -1292,20 +1290,11 @@
       startMusicIfAllowed();
     });
 
-    skipIntro.addEventListener("click", () => {
-      clearTimeline();
-      revealMain(false);
-      startMusicIfAllowed();
-    });
-
     // Keyboard accessibility
     window.addEventListener("keydown", (e) => {
       if (introOverlay.style.display !== "none" && (e.key === "Enter" || e.key === " ")) {
         e.preventDefault();
         introContinue.click();
-      }
-      if (introOverlay.style.display !== "none" && e.key.toLowerCase() === "s") {
-        skipIntro.click();
       }
     });
 
@@ -1327,6 +1316,9 @@
         }).catch(function() {});
       }
     }
+
+    // Start music on first tap anywhere on intro (so it plays during the dramatic opening)
+    introOverlay.addEventListener("click", function() { startMusicIfAllowed(); }, { once: true });
 
     musicToggle.addEventListener("click", () => {
       if(musicOn){
