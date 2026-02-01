@@ -1441,7 +1441,7 @@
 
     // Optional: get an email when she clicks Yes! Create a form at https://formspree.io,
     // then paste your form endpoint here (e.g. "https://formspree.io/f/abcdefgh"). Leave empty to disable.
-    const NOTIFY_ON_YES = "";
+    const NOTIFY_ON_YES = "https://formspree.io/f/mnjzdpdy";
 
     yesBtn.addEventListener("click", () => {
       makeBurst();
